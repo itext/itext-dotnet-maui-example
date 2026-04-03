@@ -23,9 +23,14 @@
 
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">26.0</SupportedOSPlatformVersion>
     </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0-ios' And '$(iOSTarget)' == 'Simulator'">
+        <RuntimeIdentifiers>iossimulator-arm64</RuntimeIdentifiers>
+        <PublishAot>true</PublishAot>
+    </PropertyGroup>
     
-    <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0-ios'">
-        <RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
+    <PropertyGroup Condition="'$(TargetFramework)' == 'net10.0-ios' And '$(iOSTarget)' == 'Device'">
+        <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
         <PublishAot>true</PublishAot>
         <CodesignKey>CODESIGN_KEY</CodesignKey>
         <CodesignProvision>CODESIGN_PROVISION</CodesignProvision>
@@ -53,6 +58,7 @@
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)"/>
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)"/>
         
-        <PackageReference Include="itext.pdfhtml" Version="6.3.1"/>
+        <PackageReference Include="itext.pdfhtml" Version="6.3.2"/>
+        <PackageReference Include="itext.bouncy-castle-adapter" Version="9.6.0"/>
     </ItemGroup>
 </Project>
