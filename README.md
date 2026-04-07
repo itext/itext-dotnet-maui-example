@@ -1,7 +1,13 @@
 # iText .NET MAUI example
 
 ## Description
-A sample .NET MAUI project which uses iText to test how it works on iOS platform.
+A sample .NET MAUI project which uses [iText pdfHtml](https://itextpdf.com/products/convert-html-css-to-pdf-pdfhtml).
+
+On button click it converts HTML (downloaded from hardcoded URL) to PDF. The PDF file is located in the app's folder.
+
+<p align="center">
+<img src="ui-view.png" alt="App Screenshot" width="200">
+</p>
 
 ## Software Requirements
 1. .NET 10+
